@@ -25,12 +25,13 @@ PD2 | LCD backlight control
 PD3 | LCD backlight control
 PD5 | UART TX
 PD6 | UART RX
-PD7 | Soft power latch
+PD7 | Soft power latch / Motor Enable (White wire)
 PE5 | LCD data DB7
 
 ## Power supply / control
 * soft power latch
   * The supply voltage from the battery is switched via a [transistor](/images/latch-transistor.jpg).
+  * It feeds the Motor Enable (White wire) 
   * It is activated while pressing the power button.
   * The microcontroller has to set its pin PD7 to HIGH so it stays on when the button is no more pressed
 * buck regulator 12V for the needs of the LCD Backlight
@@ -55,5 +56,8 @@ PE5 | LCD data DB7
 * capacitors for debouncing(?)
 
 ## Grip hallsensor
-* Rotation state of the grip is detected by a hallsensor
+* Rotation state of the grip is detected by [analog hallsensor SS49E](https://sensing.honeywell.com/SS49E-linear-and-angle-sensor-ics)
 * [SS49E](/images/hallsensor.jpg) connected to analog input via a RC filter
+
+## Brake Wire
+* Unconnected wire tail
